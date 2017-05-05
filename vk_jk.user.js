@@ -3,8 +3,8 @@
 // @description Hotkeys for news feed in VK (j - forward, k - backward, l - load new, m - load old, p - block repost)
 // @author Mansiper
 // @license MIT
-// @version 1.0
-// @include https://vk.com/feed
+// @version 1.1
+// @include https://vk.com/feed*
 // ==/UserScript==
 (function (window, undefined) {  
 	var w;
@@ -17,7 +17,6 @@
   var curObjId = '';
 
 	function findPos(obj) {
-		//http://stackoverflow.com/questions/5007530/how-do-i-scroll-to-an-element-using-javascript
 		var curtop = 0;
 		if (obj.offsetParent) {
 			do {
@@ -29,9 +28,7 @@
 	
 	function ignoreCurrentPost() {
 		var post = document.getElementById(curObjId);
-		console.log(post);
 		var btn = post.getElementsByClassName('flat_button')[1];
-		console.log(btn);
 		btn.click();
 		post.hidden = true;
 	}
