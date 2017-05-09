@@ -3,8 +3,8 @@
 // @description Hotkeys for news feed in VK (j - forward, k - backward, l - load new, m - load old, p - block repost)
 // @author Mansiper
 // @license MIT
-// @version 1.1
-// @include https://vk.com/feed*
+// @version 1.2
+// @include https://vk.com/*
 // ==/UserScript==
 (function (window, undefined) {  
 	var w;
@@ -34,12 +34,15 @@
 	}
 	
 	function onJKKeyDown(e) {
+		if (!document.location.href.startsWith('https://vk.com/feed')) return;
+		
 		e = e || window.event;
 		var code = (e.keyCode || e.which);
 		if (e.ctrlKey || e.shiftKey || e.altKey) return;
 		var found = false;
 		
 		var loopMove = function(post) {
+			if (post == undefined) return false;
 			var hasAdv = post.id.startsWith('ads_');
 			if (!hasAdv) {
 				var classes = post.classList;
@@ -68,10 +71,12 @@
 			for (var i = feed.length-1; i >= 0; i--)
 				if (loopMove(feed[i].firstChild)) return;
 		} else if (code == 76/*l*/) {
-			Feed.showNewPosts();
+			var btn = document.getElementById('feed_new_posts');
+			btn.click();
 			curObjId = '';
 		} else if (code == 77/*m*/) {
-			Feed.showMore();
+			var btn = document.getElementById('show_more_link');
+			btn.click();
 		} else if (code == 80/*p*/) {
 			if (curObjId == '') return;
 			var post = document.getElementById(curObjId);
