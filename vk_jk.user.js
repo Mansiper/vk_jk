@@ -3,7 +3,7 @@
 // @description Hotkeys for news feed in VK (https://github.com/Mansiper/vk_jk)
 // @author Mansiper
 // @license MIT
-// @version 1.4
+// @version 1.5
 // @include https://vk.com/*
 // ==/UserScript==
 (function (window, undefined) {  
@@ -34,7 +34,10 @@
 	}
 	
 	function onJKKeyDown(e) {
-		if (!document.location.href.startsWith('https://vk.com/feed')) return;
+		if (!document.location.href.startsWith('https://vk.com/feed') || 
+				document.getElementById('submit_post_box') == null || 
+				document.activeElement.tagName === 'DIV')
+			return;
 		
 		e = e || window.event;
 		var code = (e.keyCode || e.which);
