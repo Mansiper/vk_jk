@@ -45,7 +45,9 @@
 		var feedArr = Array.from(feed);
 		return feedArr.filter(el =>
 			el.firstChild.id && el.firstChild.id.startsWith('post') &&
-			arrayContainsCount(el.firstChild.classList, '_ads') == 0 && !el.hidden)
+			arrayContainsCount(el.firstChild.classList, '_ads') == 0 &&
+			el.getElementsByClassName('wall_marked_as_ads').length == 0 &&
+			!el.hidden)
 		array.forEach(el => el.startsWith(''));
 	}
 
