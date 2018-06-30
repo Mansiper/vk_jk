@@ -10,10 +10,10 @@ Hotkeys for news feed in VK (VKontakte). Userscript.
   * right - slide friends list right
   * left - slide friends list left
   * a - open full list
-+ alt+1..9 - open menu item according to specified number
++ alt+1..9 - open menu item according to specified number (works in all pages)
   * alt+1 - My Profile
   * alt+2 - News
-  * and so on
+  * etc.
 ---
 
 Горячие клавиши для ленты новостей во ВКонтакте.
@@ -27,7 +27,7 @@ Hotkeys for news feed in VK (VKontakte). Userscript.
   * right - сдвинуть список друзей вправо
   * left - сдвинуть список друзей влево
   * a - открыть список
-+ alt+1..9 - открыть пункт меню согласно указанному числу
++ alt+1..9 - открыть пункт меню согласно указанному числу (работает на всех страницах)
   * alt+1 - Моя Страница
   * alt+2 - Новости
   * и т.д.
