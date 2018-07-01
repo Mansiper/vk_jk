@@ -6,6 +6,7 @@ Hotkeys for news feed in VK (VKontakte). Userscript.
 + m - load old (at the bottom)
 + n - open post in background
 + p - block repost source (you will not sea news out of there again)
++ c - show comments
 + f - show block with possible friends
   * right - slide friends list right
   * left - slide friends list left
@@ -23,6 +24,7 @@ Hotkeys for news feed in VK (VKontakte). Userscript.
 + m - загрузить старые (внизу страницы)
 + n - открыть новость в фоне
 + p - заблокировать источник репоста (больше не увидите новости оттуда)
++ c - показать комментарии
 + f - показать блок с возможными друзьями
   * right - сдвинуть список друзей вправо
   * left - сдвинуть список друзей влево

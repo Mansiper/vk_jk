@@ -129,6 +129,8 @@
 			if (btn == undefined) return;
 			btn.click();
 			setTimeout(function() { ignoreCurrentPost(post) }, 500);
+		} else if (code == 67/*c*/) {	//show comments
+			location = 'https://vk.com/feed?section=comments';
 		} else if (code == 70/*f*/) {	//show potential friends
 			var feed = document.getElementById('feed_rows').getElementsByClassName('feed_row');
 			for (var i = 0; i < feed.length; i++)
