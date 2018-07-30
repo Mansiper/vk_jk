@@ -69,7 +69,8 @@
 			return altKeysActions(code);
 		
 		if (!document.location.href.startsWith('https://vk.com/feed') ||
-				document.activeElement.tagName !== 'BODY')
+				!(document.activeElement.tagName === 'BODY' ||
+				document.activeElement.tagName === 'A'))
 			return;
 		
 		if (e.ctrlKey || e.shiftKey || e.altKey) return;
