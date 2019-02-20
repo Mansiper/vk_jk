@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name vk_jk
-// @description Hotkeys for news feed in VK (https://github.com/Mansiper/vk_jk)
+// @description Hotkeys for VK (https://github.com/Mansiper/vk_jk)
 // @author Mansiper
 // @license MIT
 // @version 1.8
@@ -79,7 +79,7 @@
 			var text = songs.join('\n');
 			navigator.clipboard.writeText(text)
 				.then(() => { alert('Songs list is copied to clipboard / Список песен скопирован в буфер обмена'); })
-				.catch(err => { alert('Something went wrong / Что-то пошло не так'); });
+				.catch(err => { alert("Couldn't copy list of songs / Не удалось скопировать список песен"); });
 		}
 
 		var getItems = () => {
