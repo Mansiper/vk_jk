@@ -3,7 +3,7 @@
 // @description Hotkeys for news feed in VK (https://github.com/Mansiper/vk_jk)
 // @author Mansiper
 // @license MIT
-// @version 1.7
+// @version 1.8
 // @include https://vk.com/*
 // ==/UserScript==
 (function (window, undefined) {  
@@ -48,7 +48,6 @@
 			arrayContainsCount(el.firstChild.classList, '_ads') == 0 &&
 			el.getElementsByClassName('wall_marked_as_ads').length == 0 &&
 			!el.hidden)
-		array.forEach(el => el.startsWith(''));
 	}
 
 	function altKeysActions(code) {
@@ -61,15 +60,59 @@
 		if (sideBarItems[itemNum])
 			sideBarItems[itemNum].firstChild.click();
 	}
+
+	function musicActions(code) {
+		if (code != 88/*x*/) return;
+
+		var oldLen, len = 0;
+		var items;
+
+		var getSongsList = () => {
+			var i = 0;
+			var songs = new Array(items.length);
+			for (var item of items) {
+				var artist = item.getElementsByClassName('artist_link')[0].textContent;
+				var title = item.getElementsByClassName('audio_row__title_inner')[0].textContent;
+				songs[i++] = artist  + ' - ' + title;
+			}
+
+			var text = songs.join('\n');
+			navigator.clipboard.writeText(text)
+				.then(() => { alert('Songs list is copied to clipboard / Список песен скопирован в буфер обмена'); })
+				.catch(err => { alert('Something went wrong / Что-то пошло не так'); });
+		}
+
+		var getItems = () => {
+			oldLen = len;
+			items = document.getElementsByClassName('audio_row');
+			len = items.length;
+			if (len != oldLen) {
+				window.scrollTo(0, document.body.scrollHeight);
+				setTimeout(function() { getItems() }, 50);
+				return;
+			}
+			if (len == 0) return;
+
+			getSongsList();
+		}
+
+		getItems();
+	}
 	
 	function onJKKeyDown(e) {
 		e = e || window.event;
 		var code = (e.keyCode || e.which);
+		
 		if (!e.ctrlKey && !e.shiftKey && e.altKey)
 			return altKeysActions(code);
-		
-		if (!document.location.href.startsWith('https://vk.com/feed') ||
-				!(document.activeElement.tagName === 'BODY' ||
+		if (document.location.href.startsWith('https://vk.com/audios'))
+			return musicActions(code);
+
+		if (!document.location.href.startsWith('https://vk.com/feed')) {
+			curObjId = '';
+			return;
+		}
+		if (!(document.activeElement.tagName === 'BODY' ||
 				document.activeElement.tagName === 'A'))
 			return;
 		

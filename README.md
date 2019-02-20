@@ -1,5 +1,7 @@
 # vk_jk
-Hotkeys for news feed in VK (VKontakte). Userscript.
+## Hotkeys for VK (VKontakte). Userscript.
+
+Hotkeys for news feed:
 + j - forward
 + k - backward
 + l - load new (on top)
@@ -11,6 +13,11 @@ Hotkeys for news feed in VK (VKontakte). Userscript.
   * right - slide friends list right
   * left - slide friends list left
   * a - open full list
+
+Hotkeys for music page:
++ x - copy all music list to clipboard (artist - title)
+
+Hotkeys for all pages:
 + alt+1..9 - open menu item according to specified number (works in all pages)
   * alt+1 - My Profile
   * alt+2 - News
@@ -20,7 +27,9 @@ Install: open [chrome://extensions/](chrome://extensions/) in Google Chrome brow
 
 ---
 
-Горячие клавиши для ленты новостей во ВКонтакте. Дополнение.
+## Горячие клавиши для ВКонтакте. Дополнение.
+
+Горячие клавиши для ленты новостей:
 + j - вперёд
 + k - назад
 + l - загрузить новые (вверху страницы)
@@ -32,6 +41,11 @@ Install: open [chrome://extensions/](chrome://extensions/) in Google Chrome brow
   * вправо - сдвинуть список друзей вправо
   * влево - сдвинуть список друзей влево
   * a - открыть список
+
+Горячие клавиши для страницы музыки:
++ x - скопировать список всей музыки в буфер обмена (исполнитель - название). В таком виде удобно загружать на [Яндекс.Музыку](https://music.yandex.ru/import)
+
+Горячие клавиши для всех страниц:
 + alt+1..9 - открыть пункт меню согласно указанному числу (работает на всех страницах)
   * alt+1 - Моя Страница
   * alt+2 - Новости
